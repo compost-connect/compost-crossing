@@ -37,7 +37,8 @@ class Map extends React.Component {
   markers() {
     return this.state.markers.map((marker, i) => (
       <Marker
-        position={{ lat: marker.longitude, lng: marker.latitude }}
+        icon='http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif'
+        position={{ lat: marker.longitude, lng: marker.latitude,}}
         key={i}
       />
     ))
