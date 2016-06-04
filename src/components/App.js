@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react'
-import Map from './Map'
+import Nav from './Nav'
 
 class App extends React.Component {
   render () {
     return (
       <main>
-        <Map/>
+        <Nav />
+        {this.props.children}
       </main>
     )
   }
