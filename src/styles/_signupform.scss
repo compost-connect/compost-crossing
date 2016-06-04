@@ -1,0 +1,55 @@
+$border-radius: 2px;
+
+form {
+  display: table;
+  width: 80vw;
+}
+
+fieldset {
+  border: none;
+  width: 100%;
+  display: table-row;
+}
+
+label {
+  width: 180px;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+input, textarea {
+  display: inline-block;
+  width: 200px;
+  border: 0;
+  padding: 5px;
+  border-radius: $border-radius;
+}
+
+#password {
+  label:first-of-type {margin-bottom: 20px}
+}
+
+#who-are-you {
+  label {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  input {
+    margin-right: 10px;
+    width: auto;
+    width     : 2em;
+    margin    : 0;
+    padding   : 0;
+    font-size : 1em;
+    opacity   : 0;
+  }
+}
+
+.radio-button {
+  border: solid 1px black;
+  padding: 8px 16px;
+  margin-right: 5px;
+  &.selected {
+    background-color: white;
+  }
+}
