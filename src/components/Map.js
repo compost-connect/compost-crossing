@@ -2,8 +2,9 @@ import React, { PropTypes } from 'react'
 import { GoogleMap, Marker } from "react-google-maps";
 import { default as MarkerClusterer } from "react-google-maps/lib/addons/MarkerClusterer";
 import UserList from './UserList';
+import {getIcon} from '../utils/Utils'
 
-const CHICAGO = {
+const Chicago = {
   lat: 41.8781,
   lng: -87.6298,
 }
@@ -37,8 +38,8 @@ class Map extends React.Component {
   markers() {
     return this.state.markers.map((marker, i) => (
       <Marker
-        icon='http://barkpost-assets.s3.amazonaws.com/wp-content/uploads/2013/11/3dDoge.gif'
-        position={{ lat: marker.longitude, lng: marker.latitude,}}
+        icon={getIcon(marker.participant_type)}
+        position={{ lat: marker.latitude, lng: marker.longitude,}}
         key={i}
       />
     ))
@@ -52,7 +53,7 @@ class Map extends React.Component {
             className: 'map-container'
           }}
           defaultZoom={10}
-          defaultCenter={CHICAGO} >
+          defaultCenter={Chicago} >
           <MarkerClusterer
             averageCenter
             enableRetinaIcons
