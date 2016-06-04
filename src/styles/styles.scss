@@ -2,7 +2,7 @@ body {
   margin: 0;
   background-color: lightblue;
 }
-main {
+main div#homepage-container {
   width: 100vw;
   height: 100vh;
 }
@@ -10,4 +10,32 @@ main {
   height: 100%;
 }
 
-@import 'signupform'
+#user-list {
+  z-index: 10000;
+  width: 50vw;
+  height: 100%;
+  left: 0;
+  top: 18px;
+  overflow: scroll;
+  background-color: white;
+  position: absolute;
+  ul {
+    padding: 0;
+    list-style: none;
+    li {
+      border-bottom: solid 1px #ccc;
+      img {
+        float: left;
+        border-radius: 100%;
+      }
+      > * {
+        margin-left: 20px;
+      }
+      .user-name {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@import 'signupform';

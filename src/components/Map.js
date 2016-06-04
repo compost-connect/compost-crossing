@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 import { GoogleMap, Marker } from "react-google-maps";
 import { default as MarkerClusterer } from "react-google-maps/lib/addons/MarkerClusterer";
+import UserList from './UserList';
 
 const CHICAGO = {
   lat: 41.8781,
@@ -26,28 +27,40 @@ class Map extends React.Component {
         },
       ]
     }
+    this.markers = ::this.markers;
+  }
+  componentDidMount() {
+    fetch('//compost-crossing.herokuapp.com/api/users')
+      .then(response => response.json())
+      .then(markers => this.setState({markers: markers.slice(0,150)}))
+  }
+  markers() {
+    return this.state.markers.map((marker, i) => (
+      <Marker
+        position={{ lat: marker.longitude, lng: marker.latitude }}
+        key={i}
+      />
+    ))
   }
   render () {
     return (
-      <GoogleMap
-        containerProps={{
-          ...this.props,
-          className: 'map-container'
-        }}
-        defaultZoom={10}
-        defaultCenter={CHICAGO} >
-        <MarkerClusterer
-          averageCenter
-          enableRetinaIcons
-          gridSize={60} >
-          {this.state.markers.map((marker, i) => (
-            <Marker
-              position={{ lat: marker.latitude, lng: marker.longitude }}
-              key={i}
-            />
-          ))}
-       </MarkerClusterer>
-      </GoogleMap>
+      <div id="homepage-container">
+        <GoogleMap
+          containerProps={{
+            ...this.props,
+            className: 'map-container'
+          }}
+          defaultZoom={10}
+          defaultCenter={CHICAGO} >
+          <MarkerClusterer
+            averageCenter
+            enableRetinaIcons
+            gridSize={60} >
+            {this.markers()}
+         </MarkerClusterer>
+        </GoogleMap>
+        <UserList users={this.state.markers} />
+      </div>
     );
   }
 }
