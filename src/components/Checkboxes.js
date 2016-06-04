@@ -8,10 +8,17 @@ class Checkboxes extends React.Component {
     };
   }
   onButtonClick(choice) {
-    this.setState({selectedChoices: [
-      ...this.state.selectedChoices,
-      choice
-    ]});
+    if (this.state.selectedChoices.includes(choice)) {
+      this.setState({
+        selectedChoices: this.state.selectedChoices
+          .filter(selectedChoice => selectedChoice !== choice)
+      })
+    } else {
+      this.setState({selectedChoices: [
+        ...this.state.selectedChoices,
+        choice
+      ]});
+    }
   }
   componentDidUpdate() {
     return (!this.props.onChange);
@@ -26,7 +33,7 @@ class Checkboxes extends React.Component {
           this.props.choices.map((choice, i) =>
             <button
               key={i}
-              className={`button${this.state.activeChoice === choice ? ' selected' : ''}`}
+              className={`button${this.state.selectedChoices.includes(choice) ? ' selected' : ''}`}
               onClick={this.onButtonClick.bind(this, choice)}>
               {choice}
             </button>
