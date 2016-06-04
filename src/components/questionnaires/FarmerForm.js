@@ -5,10 +5,7 @@ import Checkboxes from '../Checkboxes';
 class FarmerForm extends React.Component {
   render () {
     return (
-      <div id="resident-questionaire">
-        <RadioButtons
-          label="Do you live in an apartment or house?"
-          choices={["House", "Apartments"]} />
+      <div id="farmer-questionnaire">
         <Checkboxes
           label="Where do you currently grow your produce?"
           choices={[

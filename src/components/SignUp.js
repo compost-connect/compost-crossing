@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import RadioButtons from './RadioButtons';
-import ResidentForm from './questionaires/ResidentForm';
-import ComposterForm from './questionaires/ComposterForm';
-import FarmerForm from './questionaires/FarmerForm';
+import ResidentForm from './questionnaires/ResidentForm';
+import ComposterForm from './questionnaires/ComposterForm';
+import FarmerForm from './questionnaires/FarmerForm';
 
 class SignUp extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import Checkboxes from '../Checkboxes';
 class ResidentForm extends React.Component {
   render () {
     return (
-      <div id="resident-questionaire">
+      <div id="resident-questionnaire">
         <RadioButtons
           label="Do you live in an apartment or house?"
           choices={["House", "Apartments"]} />

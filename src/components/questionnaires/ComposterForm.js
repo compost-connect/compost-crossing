@@ -5,7 +5,7 @@ import Checkboxes from '../Checkboxes';
 class ComposterForm extends React.Component {
   render () {
     return (
-      <div id="composter-questionaire">
+      <div id="composter-questionnaire">
         <RadioButtons
           label="Where do you compost?"
           choices={["In my backyard", "at a community composting site`"]} />
