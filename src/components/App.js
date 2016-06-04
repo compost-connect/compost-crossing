@@ -1,8 +1,13 @@
 import React, { PropTypes } from 'react'
+import Map from './Map'
 
 class App extends React.Component {
   render () {
-    return <div>Hello World</div>
+    return (
+      <main>
+        <Map/>
+      </main>
+    )
   }
 }
 
