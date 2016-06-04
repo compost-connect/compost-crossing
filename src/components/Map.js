@@ -11,7 +11,20 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      markers: []
+      markers: [
+        {
+          latitude: 41.856650,
+          longitude: -87.664865,
+        },
+        {
+          latitude: 41.977772,
+          longitude: -87.667254
+        },
+        {
+          latitude: 41.882591,
+          longitude: -87.637407
+        },
+      ]
     }
   }
   render () {
@@ -27,10 +40,10 @@ class Map extends React.Component {
           averageCenter
           enableRetinaIcons
           gridSize={60} >
-          {this.state.markers.map(marker => (
+          {this.state.markers.map((marker, i) => (
             <Marker
               position={{ lat: marker.latitude, lng: marker.longitude }}
-              key={ marker.photo_id }
+              key={i}
             />
           ))}
        </MarkerClusterer>
