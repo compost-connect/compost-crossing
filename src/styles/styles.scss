@@ -1,6 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
 body {
   margin: 0;
   background-color: #eee;
+  font-family: 'Open Sans', sans-serif;
 }
 main div#homepage-container {
   width: 100vw;
@@ -12,6 +15,9 @@ nav {
   background-color: white;
   border-bottom: 1px solid #ccc;
   height: 30px;
+  a {
+    margin-right: 10px;
+  }
 }
 .map-container {
   height: 100%;
