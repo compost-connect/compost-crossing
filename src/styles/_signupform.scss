@@ -2,12 +2,11 @@ $border-radius: 2px;
 
 form {
   display: table;
-  width: 80vw;
+  max-width: 500px;
 }
 
 fieldset {
   border: none;
-  width: 100%;
   display: table-row;
 }
 
