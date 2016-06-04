@@ -6,7 +6,7 @@ class UserList extends React.Component {
     return (
       <section id="user-list">
         <ul>
-          {this.props.users.map(user => <UserListItem {...user}/>)}
+          {this.props.users.map((user, i) => <UserListItem key={i} {...user}/>)}
         </ul>
       </section>
     )
