@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import './styles/styles.scss';
 import App from './components/App';
 import Map from './components/Map';
@@ -13,7 +13,7 @@ const NoMatch = (props) => {
 }
 
 render((
-  <Router history={browserHistory}>
+  <Router history={hashHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={Map}/>
       <Route path="/sign-up" component={SignUp}/>
