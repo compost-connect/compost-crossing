@@ -1,16 +1,21 @@
 import React, { PropTypes } from 'react'
 
-class RadioButtons extends React.Component {
+class Checkboxes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeChoice: null
+      selectedChoices: []
     };
   }
   onButtonClick(choice) {
-    this.setState({activeChoice: choice}, () => {
-      if (this.props.onChange) this.props.onChange(this.state);
-    });
+    this.setState({selectedChoices: [
+      ...this.state.selectedChoices,
+      choice
+    ]});
+  }
+  componentDidUpdate() {
+    return (!this.props.onChange);
+    this.props.onChange(this.state);
   }
   render () {
     return (
@@ -32,10 +37,10 @@ class RadioButtons extends React.Component {
   }
 }
 
-RadioButtons.propTypes = {
+Checkboxes.propTypes = {
   label: PropTypes.string,
   choices: PropTypes.array.isRequired,
   onChange: PropTypes.func
 }
 
-export default RadioButtons;
+export default Checkboxes;

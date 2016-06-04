@@ -1,7 +1,10 @@
+// other stuff
+import './styles/styles.scss';
+import './vendor/includesPolyfill';
+// APP
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
-import './styles/styles.scss';
 import App from './components/App';
 import Map from './components/Map';
 import SignUp from './components/SignUp';

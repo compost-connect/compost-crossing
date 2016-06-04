@@ -1,12 +1,36 @@
 import React, { PropTypes } from 'react'
 import RadioButtons from './RadioButtons';
+import ResidentForm from './questionaires/ResidentForm';
+import ComposterForm from './questionaires/ComposterForm';
+import FarmerForm from './questionaires/FarmerForm';
 
 class SignUp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedParticapant: null
+    };
+    this.questionaire = ::this.questionaire;
+    this.onParticipantChange = ::this.onParticipantChange;
+  }
   onSubmit(e) {
     e.preventDefault();
   }
+  onParticipantChange({activeChoice}) {
+    console.log(activeChoice)
+    this.setState({selectedParticapant: activeChoice});
+  }
   questionaire() {
-
+    switch (this.state.selectedParticapant) {
+      case 'resident':
+        return <ResidentForm/>
+      case 'composter':
+        return <ComposterForm/>
+      case 'farmer':
+        return <FarmerForm/>
+      default:
+        return '';
+    }
   }
   render () {
     return (
@@ -32,8 +56,11 @@ class SignUp extends React.Component {
         <RadioButtons
           id="who-are-you"
           label="Who are you?"
-          choices={["resident", "composter", "farmer"]}/>
-        {this.questionaire()}
+          choices={["resident", "composter", "farmer"]}
+          onChange={this.onParticipantChange} />
+        {
+          this.questionaire()
+        }
       </form>
     )
   }

@@ -44,11 +44,16 @@ input, textarea {
   }
 }
 
-.radio-button {
+.button {
   border: solid 1px black;
   padding: 8px 16px;
-  margin-right: 5px;
-  &.selected {
-    background-color: white;
+}
+
+.button-group {
+  .button {
+    margin-right: 5px;
+    &.selected {
+      background-color: white;
+    }
   }
 }
