@@ -78,7 +78,7 @@ class SignUp extends React.Component {
         {
           this.questionnaire()
         }
-        <input type="submit" value="Sign Up" />
+        <input className="sign-up-button" type="submit" value="Sign Up" />
       </form>
     )
   }

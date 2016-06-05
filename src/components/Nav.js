@@ -8,8 +8,12 @@ const Nav = (props) => {
     <Link to="profile">profile</Link>
   ];
   const authLinks = [
-    <Link to="sign-up">Sign Up</Link>,
-    <Link to="login">Login</Link>
+    <Link to="login">Login</Link>,
+    <Link to="sign-up">
+      <button className="nav sign-up-button">
+        Sign Up
+      </button>
+    </Link>
   ]
   return (
     <nav>
