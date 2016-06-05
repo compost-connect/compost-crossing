@@ -37,6 +37,10 @@ class ResidentForm extends React.Component {
           ref="volunteer"
           label="Are you willing to volunteer at the compost site, if needed, to help turning compost?"
           choices={["Yes", "No"]} />
+        <RadioButtons
+          ref="harvest"
+          label="d. Would you like to receive notifications from an urban farmer who is selling/giving away produce grown using compost generated from your waste?"
+          choices={["Yes", "No"]} />
       </div>
     )
   }
