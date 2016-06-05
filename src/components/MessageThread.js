@@ -15,13 +15,18 @@ class MessageThread extends React.Component {
     ));
   }
   messages() {
-    if (!this.props.receivedMessages || this.props.receivedMessages.length > 0) return
+    if (!this.props.receivedMessages || this.props.receivedMessages.length == 0) return
     let receivedMessages = this.props.receivedMessages
       .filter(message =>  message.from.email === this.props.params.toUser);
-    let sentMessages = this.props.receivedMessages
+    let sentMessages = this.props.sentMessages
       .filter(message => message.to.email === this.props.params.toUser);
     return [...receivedMessages, ...sentMessages]
-      .map(message => <li>{message.content}</li>);
+        .sort((a,b) => new Date(b.sent) - new Date(a.sent))
+        .map(message => <li>
+                <span className="from-user">{message.from.name}: </span>
+                <span className="message-content">{message.content}</span>
+                <span className="sent-time">{new Date(message.sent).toLocaleTimeString()}</span>
+            </li>);
   }
   render () {
     return (
