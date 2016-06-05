@@ -10,6 +10,14 @@ export default function reducer(state = {}, action) {
         sent: action.messages.sent,
         received: action.messages.received
       }
+    case SEND_MESSAGE:
+      return {
+        ...state,
+        sent: [
+          ...state.sent,
+          action.message
+        ]
+      };
     default:
       return state;
   }
@@ -23,7 +31,16 @@ export function fetchMessageSuccess(messages){
 };
 
 export function sendMessage() {
+  return dispatch => {
+    fetch('//compost-crossing.herokuapp.com/api/messages', {
+      headers: {'Content-Type': 'application/json'},
+      method: 'post',
+      body: JSON.stringify({
 
+      })
+    }).then(response => response.json())
+      .then(token => dispatch(loginSuccess(token)));
+  }
 }
 
 export function fetchMessages(token) {

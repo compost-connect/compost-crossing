@@ -12,6 +12,7 @@ import Map from './components/Map';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import MessageCenter from './components/MessageCenter';
+import MessageThread from './components/MessageThread';
 
 const NoMatch = (props) => {
   return (
@@ -32,6 +33,7 @@ render((
         <Route path="/sign-up" component={SignUp}/>
         <Route path="/login" component={SignIn}/>
         <Route path="/messages" component={MessageCenter}/>
+        <Route path="/send-message/:toUser" component={MessageThread}/>
       </Route>
       <Route path="*" component={NoMatch}/>
     </Router>

@@ -19,7 +19,7 @@ const UserListItem = ({name, participant_type, avatar_url, email, refuseInfo, lo
       <p key="logistic-info">
         Receive pickup, Drop off
       </p>
-      <Link to={`message/${email}`}>
+      <Link to={`send-message/${email}`}>
         <button>Message</button>
       </Link>
     </li>
