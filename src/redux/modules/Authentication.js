@@ -40,14 +40,18 @@ export function authenticateUser(params) {
   }
 }
 
-export function validateToken(params) {
+export function validateToken(token) {
+  console.log(token)
   return dispatch => {
     fetch('//compost-crossing.herokuapp.com/api/validate', {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
-      body: JSON.stringify({token: params.token})
+      body: JSON.stringify({jwt: token})
     }).then(response => response.json())
-      .then(token => dispatch(loginSuccess(token)));
+      .then(json => {
+        if (!json.error)
+        dispatch(loginSuccess(token))
+      });
   }
 }
 

@@ -5,7 +5,6 @@ import Nav from './Nav'
 
 class App extends React.Component {
   componentDidMount() {
-    console.log(this.props.token)
     if (this.props.token) this.props.dispatch(validateToken(this.props.token));
   }
   render () {

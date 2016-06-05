@@ -26,7 +26,6 @@ class SignUp extends React.Component {
       participant_type: this.state.selectedParticapant,
       questionnaire: this.refs.questionnaire.serialize()
     }
-    console.log(userParams)
     this.props.dispatch(createUser(userParams));
   }
   onParticipantChange({activeChoice}) {

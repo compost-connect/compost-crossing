@@ -5,6 +5,7 @@ import AuthenticationReducer from './modules/Authentication';
 import MessageReducer from './modules/Messages';
 
 const rootReducer = combineReducers({
+  MessageReducer,
   AuthenticationReducer
 });
 
