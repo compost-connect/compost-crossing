@@ -8,16 +8,16 @@ const Nav = (props) => {
     <Link to="profile">profile</Link>
   ];
   const authLinks = [
-    <Link to="login">Login</Link>,
-    <Link to="sign-up">
+    <Link className="sign-up-link" to="sign-up">
       <button className="nav sign-up-button">
         Sign Up
       </button>
-    </Link>
+    </Link>,
+    <Link to="login">Login</Link>
   ]
   return (
     <nav>
-      <Link to="">Compost Crossing</Link>
+      <Link className="home-link" to="">Compost Crossing</Link>
       {props.authenticated ? userLinks : authLinks}
     </nav>
   )

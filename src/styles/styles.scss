@@ -16,7 +16,16 @@ nav {
   border-bottom: 1px solid #ccc;
   height: 39px;
   a {
+    color: #544F4F;
     margin-right: 10px;
+    margin-top: 8px;
+    float: right;
+    &.sign-up-link {
+      margin-top: 5px;
+    }
+  }
+  .home-link {
+    float: left;
   }
 }
 .map-container {
