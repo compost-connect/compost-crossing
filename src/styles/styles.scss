@@ -26,6 +26,12 @@ nav {
     &.sign-up-link {
       margin-top: 5px;
     }
+    &.message-link {
+      svg {
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
   }
   .home-link {
     float: left;

@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import InboxIcon from './InboxIcon';
 
 const Nav = (props) => {
   const userLinks = [
-    <Link to="messages">Inbox</Link>,
-    <Link to="profile">profile</Link>
+    <Link className="message-link" to="messages">
+      <InboxIcon/>
+      Inbox
+    </Link>
   ];
   const authLinks = [
     <Link className="sign-up-link" to="sign-up">
