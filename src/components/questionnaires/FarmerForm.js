@@ -18,18 +18,18 @@ class FarmerForm extends React.Component {
     return (
       <div id="farmer-questionnaire">
         <RadioButtons
-          ref="buyCompost"
+          ref="sell_compost"
           label="Are you willing to pay for sustainably created compost ?"
           choices={[
             "Yes",
             "No"]} />
-        <fieldset id="cubic yards">
+        <fieldset id="cubic-yards">
           <label>
             How many cubic yards of compost (approximately) do you generate/hope to generate in 1 year?
           </label>
-          <input ref="compostSizeMin" type="number" />
+          <input ref="compost_size_min" type="number" />
           to
-          <input ref="compostSizeMax" type="number" />
+          <input ref="compost_size_max" type="number" />
         </fieldset>
         <RadioButtons
           ref="harvest"

@@ -28,7 +28,7 @@ class ComposterForm extends React.Component {
             "Wood Chips (seasonal)",
             "Leaves (seasonal)"]} />
         <Checkboxes
-          ref="logistics"
+          ref="logistic"
           label="How do you prefer to get organic waste from residents?"
           choices={[
             "Pick up at their residence",
@@ -38,18 +38,18 @@ class ComposterForm extends React.Component {
           label="Would you need volunteers from your resident supporters to help you with compost turnings and other maintenance, if needed??"
           choices={["Yes", "No"]} />
         <Checkboxes
-          ref="sellCompost"
+          ref="sell_compost"
           label="When the compost is finished, how do you want to disperse it?"
           choices={[
             "Sell it to urban farmers/community gardeners",
             "Give it away for free"]} />
-          <fieldset id="cubic yards">
+          <fieldset id="cubic-yards">
             <label>
               How many cubic yards of compost (approximately) do you generate/hope to generate in 1 year?
             </label>
-            <input ref="compostSizeMin" type="number" />
+            <input ref="compost_size_min" type="number" />
             to
-            <input ref="compostSizeMax" type="number" />
+            <input ref="compost_size_max" type="number" />
           </fieldset>
         </div>
     )
