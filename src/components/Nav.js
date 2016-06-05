@@ -17,7 +17,9 @@ const Nav = (props) => {
   ]
   return (
     <nav>
-      <Link className="home-link" to="">Compost Crossing</Link>
+      <Link className="home-link" to="">
+        <img className="nav-logo" src="//compost-crossing.herokuapp.com/public/images/cc_logo_text.png" />
+      </Link>
       {props.authenticated ? userLinks : authLinks}
     </nav>
   )
