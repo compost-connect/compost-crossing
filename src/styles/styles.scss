@@ -131,6 +131,14 @@ nav {
   }
 }
 
+#login {
+  margin: 0 auto;
+  margin-top: 20%;
+  > * {
+    margin-bottom: 15px;
+  }
+}
+
 
 
 @import 'signupform';

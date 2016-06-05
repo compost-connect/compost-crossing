@@ -26,7 +26,7 @@ class MessageThread extends React.Component {
                 <span className="from-user">{message.from.name}: </span>
                 <span className="message-content">{message.content}</span>
                 <span className="sent-time">{new Date(message.sent).toLocaleTimeString()}</span>
-            </li>);
+            </li>).reverse();
   }
   render () {
     return (

@@ -17,7 +17,7 @@ class SignIn extends React.Component {
   }
   render () {
     return (
-      <form onSubmit={this.onSubmit.bind(this)}>
+      <form id="login" onSubmit={this.onSubmit.bind(this)}>
         <label>
           Email
         </label>
@@ -30,7 +30,7 @@ class SignIn extends React.Component {
         <input
           ref="password"
           type="password" />
-        <input type="submit" value="Submit"/>
+        <input className="sign-up-button" type="submit" value="Login"/>
       </form>
     );
   }
