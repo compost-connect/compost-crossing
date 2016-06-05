@@ -10,6 +10,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './components/App';
 import Map from './components/Map';
 import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
 import MessageCenter from './components/MessageCenter';
 
 const NoMatch = (props) => {
@@ -29,6 +30,7 @@ render((
       <Route path="/" component={App}>
         <IndexRoute component={Map}/>
         <Route path="/sign-up" component={SignUp}/>
+        <Route path="/sign-in" component={SignIn}/>
         <Route path="/messages" component={MessageCenter}/>
       </Route>
       <Route path="*" component={NoMatch}/>
