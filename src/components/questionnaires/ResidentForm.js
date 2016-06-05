@@ -28,16 +28,19 @@ class ResidentForm extends React.Component {
             "Wood Chips (seasonal)",
             "Leaves (seasonal)"]} />
         <RadioButtons
+          type="standard"
           ref="logistic"
           label="How do you prefer to get rid of your waste"
           choices={[
             "Have the composter pick it up",
             "Drop it off at the compost site"]} />
         <RadioButtons
+          type="standard"
           ref="volunteer"
           label="Are you willing to volunteer at the compost site, if needed, to help turning compost?"
           choices={["Yes", "No"]} />
         <RadioButtons
+          type="standard"
           ref="harvest"
           label="d. Would you like to receive notifications from an urban farmer who is selling/giving away produce grown using compost generated from your waste?"
           choices={["Yes", "No"]} />

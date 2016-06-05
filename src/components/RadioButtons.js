@@ -17,12 +17,13 @@ class RadioButtons extends React.Component {
     return this.state.activeChoice;
   }
   render () {
-    return (
-      <fieldset {...this.props}
-        className={`button-group ${this.props.className}`}>
-        <label>{this.props.label}</label>
-        {
-          this.props.choices.map((choice, i) =>
+    if (this.props.type === 'buttonGroup') {
+      return (
+        <fieldset {...this.props}
+          className={`button-group ${this.props.className}`}>
+          <label>{this.props.label}</label>
+          {
+            this.props.choices.map((choice, i) =>
             <button
               type="button"
               key={i}
@@ -32,9 +33,30 @@ class RadioButtons extends React.Component {
             </button>
           )
         }
-      </fieldset>
-    );
+      </fieldset>);
+    }
+    return (
+      <fieldset {...this.props}
+        className={`button-group ${this.props.className}`}>
+        <label>{this.props.label}</label>
+        {
+          this.props.choices.map((choice, i) =>
+          <div className="radiobutton-group">
+            <input
+              name={this.props.label}
+              type="radio"
+              key={i}
+              onClick={this.onButtonClick.bind(this, choice)} />
+            {choice}
+          </div>
+        )
+      }
+    </fieldset>);
   }
+}
+
+RadioButtons.defaultProps = {
+  type: 'buttonGroup'
 }
 
 RadioButtons.propTypes = {

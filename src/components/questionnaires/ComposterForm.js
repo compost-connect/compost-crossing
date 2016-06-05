@@ -34,6 +34,7 @@ class ComposterForm extends React.Component {
             "Pick up at their residence",
             "Have them drop it off at designated site"]} />
         <RadioButtons
+          type="standard"
           ref="volunteer"
           label="Would you need volunteers from your resident supporters to help you with compost turnings and other maintenance, if needed??"
           choices={["Yes", "No"]} />

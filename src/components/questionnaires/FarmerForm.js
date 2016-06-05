@@ -18,6 +18,7 @@ class FarmerForm extends React.Component {
     return (
       <div id="farmer-questionnaire">
         <RadioButtons
+          type="standard"
           ref="sell_compost"
           label="Are you willing to pay for sustainably created compost ?"
           choices={[
@@ -32,6 +33,7 @@ class FarmerForm extends React.Component {
           <input ref="compost_size_max" type="number" />
         </fieldset>
         <RadioButtons
+          type="standard"
           ref="harvest"
           label="When you harvest, what are you looking to do with your produce?"
           choices={[
