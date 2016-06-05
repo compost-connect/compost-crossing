@@ -39,17 +39,16 @@ class Map extends React.Component {
   }
   markers() {
     if (this.props.matches.length == 0) return;
-
     return <MarkerClusterer
       averageCenter
       enableRetinaIcons
       gridSize={60} >
       {
-        this.props.matches.length > 0 ?
         this.props.matches.map(match => <Marker
-        icon={getIcon(match.participant_type)}
-        position={{ lat: match.latitude, lng: match.longitude,}}
-        key={match.email}/>) : ''}
+                icon={getIcon(match.participant_type)}
+                position={{ lat: match.latitude, lng: match.longitude}}
+                key={match.email}/>)
+      }
    </MarkerClusterer>
   }
   render () {
@@ -62,6 +61,7 @@ class Map extends React.Component {
           }}
           defaultZoom={10}
           defaultCenter={Chicago} >
+          {this.markers()}
         </GoogleMap>
         <UserList users={this.props.matches} />
       </div>
