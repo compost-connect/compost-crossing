@@ -10,7 +10,7 @@ class FarmerForm extends React.Component {
   serialize() {
     return Object.keys(this.refs).map(ref => {
       return {
-        [ref]: this.refs[ref].value()
+        [ref]: typeof this.refs[ref].value === 'function' ? this.refs[ref].value() : this.refs[ref].value
       }
     })
   }
