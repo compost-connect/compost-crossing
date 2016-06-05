@@ -44,7 +44,6 @@ export function authenticateUser(params) {
 }
 
 export function validateToken(token) {
-  console.log(token)
   return dispatch => {
     fetch(`${BASE_URL}/api/validate`, {
       headers: {'Content-Type': 'application/json'},

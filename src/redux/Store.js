@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 // reducer modules
 import AuthenticationReducer from './modules/Authentication';
 import MessageReducer from './modules/Messages';
+import MatchesReducer from './modules/Matches';
 
 const rootReducer = combineReducers({
   MessageReducer,
-  AuthenticationReducer
+  AuthenticationReducer,
+  MatchesReducer
 });
 
 const finalCreateStore = compose(
