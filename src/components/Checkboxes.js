@@ -6,6 +6,7 @@ class Checkboxes extends React.Component {
     this.state = {
       selectedChoices: []
     };
+    this.value = ::this.value;
   }
   onButtonClick(choice) {
     if (this.state.selectedChoices.includes(choice)) {
@@ -19,6 +20,9 @@ class Checkboxes extends React.Component {
         choice
       ]});
     }
+  }
+  value() {
+    return this.state.selectedChoices;
   }
   componentDidUpdate() {
     return (!this.props.onChange);

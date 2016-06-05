@@ -6,11 +6,15 @@ class RadioButtons extends React.Component {
     this.state = {
       activeChoice: null
     };
+    this.value = ::this.value;
   }
   onButtonClick(choice) {
     this.setState({activeChoice: choice}, () => {
       if (this.props.onChange) this.props.onChange(this.state);
     });
+  }
+  value() {
+    return this.state.activeChoice;
   }
   render () {
     return (

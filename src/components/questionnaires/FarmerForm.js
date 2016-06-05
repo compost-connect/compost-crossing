@@ -3,6 +3,17 @@ import RadioButtons from '../RadioButtons';
 import Checkboxes from '../Checkboxes';
 
 class FarmerForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.serialize = ::this.serialize;
+  }
+  serialize() {
+    return Object.keys(this.refs).map(ref => {
+      return {
+        [ref]: this.refs[ref].value()
+      }
+    })
+  }
   render () {
     return (
       <div id="farmer-questionnaire">

@@ -2,22 +2,15 @@ const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 const AUTHENTICATE_USER_SUCCESS = 'AUTHENTICATE_USER_SUCCESS';
 const VALIDATE_TOKEN = 'VALIDATE_TOKEN';
 const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS';
-const SET_TOKEN = 'SET_TOKEN';
-
 const initialState = {
   authenticated: false,
-  token: localStorage.getItem('jwt')
+  token: sessionStorage.getItem('jwt')
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case SET_TOKEN:
-      return {
-        ...state,
-        token: action.token
-      };
     case AUTHENTICATE_USER_SUCCESS:
-      localStorage.setItem('jwt', action.token);
+      sessionStorage.setItem('jwt', action.token);
       return {
         ...state,
         token: action.token,
@@ -25,13 +18,6 @@ export default function reducer(state = initialState, action) {
       }
     default:
       return state;
-  }
-}
-
-export function setToken(token) {
-  return {
-    type: SET_TOKEN,
-    token
   }
 }
 
@@ -65,10 +51,17 @@ export function validateToken(params) {
   }
 }
 
-export function createUser(params) {
+export function createUser(userParams) {
+  const pw = userParams.password;
   return dispatch => {
-    fetch.post('//compost-crossing.herokuapp.com/api/user')
-      .then(response => response.json())
-      .then(token => dispatch(setToken(token)));
+    // fetch('//compost-crossing.herokuapp.com/api/users', {
+    fetch('//localhost:9393/api/users', {
+      headers: {'Content-Type': 'application/json'},
+      method: 'post',
+      body: JSON.stringify(userParams)
+    }).then(response => response.json())
+      .then(token => {
+        dispatch(loginSuccess(token));
+      });
   }
 }
