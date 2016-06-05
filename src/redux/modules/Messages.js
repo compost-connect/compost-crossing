@@ -13,7 +13,7 @@ export default function reducer(state = {}, action) {
         sent: action.messages.sent,
         received: action.messages.received
       }
-    case SEND_MESSAGE:
+    case SEND_MESSAGE_SUCCES:
       return {
         ...state,
         sent: [
@@ -33,10 +33,10 @@ export function fetchMessageSuccess(messages){
   };
 };
 
-export function sendMessageSuccess(messages){
+export function sendMessageSuccess(message){
   return {
     type: SEND_MESSAGE_SUCCES,
-    messages
+    message
   };
 };
 
@@ -45,9 +45,9 @@ export function sendMessage(token, params) {
     fetch(`${BASE_URL}/api/messages`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
-      body: JSON.stringify(params)
+      body: JSON.stringify({...params, jwt: token})
     }).then(response => response.json())
-      .then(token => dispatch(sendMessageSuccess(message)));
+      .then(message => dispatch(sendMessageSuccess(message)));
   }
 }
 
