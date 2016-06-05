@@ -3,7 +3,12 @@ const AUTHENTICATE_USER_SUCCESS = 'AUTHENTICATE_USER_SUCCESS';
 const VALIDATE_TOKEN = 'VALIDATE';
 const SET_TOKEN = 'SET_TOKEN';
 
-export default function reducer(state = {}, action) {
+const initialState = {
+  authenticated: false,
+  token: localStorage.getItem('jwt')
+};
+
+export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_TOKEN:
       return {
@@ -11,6 +16,7 @@ export default function reducer(state = {}, action) {
         token: action.token
       };
     case AUTHENTICATE_USER_SUCCESS:
+      localStorage.setItem('jwt', action.token);
       return {
         ...state,
         token: action.token,
