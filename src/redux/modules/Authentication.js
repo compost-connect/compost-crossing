@@ -1,6 +1,7 @@
 const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 const AUTHENTICATE_USER_SUCCESS = 'AUTHENTICATE_USER_SUCCESS';
-const VALIDATE_TOKEN = 'VALIDATE';
+const VALIDATE_TOKEN = 'VALIDATE_TOKEN';
+const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS';
 const SET_TOKEN = 'SET_TOKEN';
 
 const initialState = {
@@ -55,9 +56,12 @@ export function authenticateUser(params) {
 
 export function validateToken(params) {
   return dispatch => {
-    fetch.post('//compost-crossing.herokuapp.com/api/validate')
-      .then(response => response.json())
-      .then(token => dispatch(setToken(token)));
+    fetch('//compost-crossing.herokuapp.com/api/validate', {
+      headers: {'Content-Type': 'application/json'},
+      method: 'post',
+      body: JSON.stringify({token: params.token})
+    }).then(response => response.json())
+      .then(token => dispatch(loginSuccess(token)));
   }
 }
 
