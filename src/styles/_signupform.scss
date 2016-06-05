@@ -1,7 +1,7 @@
 $border-radius: 2px;
-$composter-orange: #EC4E11;
-$resident-blue: #195AEC;
-$farmer-green: #39A747;
+$composter-orange: #FF4C22;
+$resident-blue: #0061ED;
+$farmer-green: #00B250;
 
 form {
   display: table;
@@ -27,11 +27,16 @@ input, textarea {
 }
 
 input[type="submit"] {
-  margin-left: 15px;
-}
-
-#password {
-  label:first-of-type {margin-bottom: 20px}
+  margin: 15px;
+  padding: 10px;
+  width: auto;
+  padding: 10px 24px;
+  font-size: 16px;
+  box-shadow: -2px 2px 0px 1px darkgray;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  background-color: $farmer-green;
 }
 
 #who-are-you {
@@ -40,19 +45,20 @@ input[type="submit"] {
     margin-bottom: 10px;
   }
   button {
+    border: 0;
     border-radius: 5px;
     font-weight: bold;
     color: white;
-    background-color: #EC4E11;
-    box-shadow: 1px 2px 0px 1px darkgray;
+    background-color: $composter-orange;
+    box-shadow: -2px 2px 0px 1px darkgray;
     margin-right: 8%;
     padding: 10px 24px;
     font-size: 16px;
     &:first-of-type{
-      background-color: blue;
+      background-color: $resident-blue;
     }
     &:last-of-type{
-      background-color: green;
+      background-color: $farmer-green;
     }
     &:hover {
       cursor: pointer;
