@@ -34,15 +34,17 @@ class Checkboxes extends React.Component {
         className={`button-group ${this.props.className}`}>
         <label>{this.props.label}</label>
         {
-          this.props.choices.map((choice, i) =>
-            <button
-              key={i}
-              type="button"
-              className={`button${this.state.selectedChoices.includes(choice) ? ' selected' : ''}`}
-              onClick={this.onButtonClick.bind(this, choice)}>
-              {choice}
-            </button>
-          )
+          this.props.choices.map((choice, i) => {
+            return <div
+              className="checkbox-group" >
+              <input
+                onClick={this.onButtonClick.bind(this, choice)}
+                key={i}
+                name={choice}
+                type="checkbox" />
+              <label for={choice}>{choice}</label>
+          </div>
+          })
         }
       </fieldset>
     );

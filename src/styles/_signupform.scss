@@ -54,6 +54,9 @@ input[type="submit"] {
     &:last-of-type{
       background-color: green;
     }
+    &:hover {
+      cursor: pointer;
+    }
   }
   border-bottom: solid 1px #aaa;
 }
@@ -69,5 +72,14 @@ input[type="submit"] {
     &.selected {
       background-color: white;
     }
+  }
+}
+
+.checkbox-group {
+  input {
+      width: auto;
+  }
+  * > {
+    display: inline;
   }
 }
