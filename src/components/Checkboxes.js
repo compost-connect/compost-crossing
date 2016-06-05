@@ -33,6 +33,7 @@ class Checkboxes extends React.Component {
           this.props.choices.map((choice, i) =>
             <button
               key={i}
+              type="button"
               className={`button${this.state.selectedChoices.includes(choice) ? ' selected' : ''}`}
               onClick={this.onButtonClick.bind(this, choice)}>
               {choice}

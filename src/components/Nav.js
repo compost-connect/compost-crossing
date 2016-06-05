@@ -6,6 +6,7 @@ const Nav = (props) => {
     <nav>
       <Link to="">Compost Crossing</Link>
       <Link to="sign-up">Sign Up</Link>
+      <Link to="sign-in">Sign In</Link>
       <Link to="messages">Inbox</Link>
     </nav>
   )

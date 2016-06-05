@@ -20,6 +20,7 @@ class RadioButtons extends React.Component {
         {
           this.props.choices.map((choice, i) =>
             <button
+              type="button"
               key={i}
               className={`button${this.state.activeChoice === choice ? ' selected' : ''}`}
               onClick={this.onButtonClick.bind(this, choice)}>

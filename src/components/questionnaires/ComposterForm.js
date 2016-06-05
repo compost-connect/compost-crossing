@@ -25,7 +25,7 @@ class ComposterForm extends React.Component {
           choices={[
             "Sell it to urban farmers/community gardeners",
             "Give it away for free"]} />
-      </div>
+        </div>
     )
   }
 }

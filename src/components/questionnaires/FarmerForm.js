@@ -28,7 +28,7 @@ class FarmerForm extends React.Component {
             "Sell it to a local business/restaurant",
             "Use it myself/give the rest away",
             "Sell it in an online marketplace at a small scale"]} />
-      </div>
+        </div>
     )
   }
 }

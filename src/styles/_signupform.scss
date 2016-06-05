@@ -24,6 +24,10 @@ input, textarea {
   border-radius: $border-radius;
 }
 
+input[type="submit"] {
+  margin-left: 15px;
+}
+
 #password {
   label:first-of-type {margin-bottom: 20px}
 }

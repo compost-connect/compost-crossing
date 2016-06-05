@@ -29,7 +29,7 @@ class ResidentForm extends React.Component {
       <RadioButtons
         label="Would you like to receive notifications from the composter when finished compost is available?"
         choices={["Yes", "No"]} />
-      </div>
+    </div>
     )
   }
 }

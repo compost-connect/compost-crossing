@@ -1,10 +1,12 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 // reducer modules
+import AuthenticationReducer from './modules/Messages';
 import MessageReducer from './modules/Messages';
 
 const rootReducer = combineReducers({
-  MessageReducer
+  MessageReducer,
+  AuthenticationReducer
 });
 
 const finalCreateStore = compose(

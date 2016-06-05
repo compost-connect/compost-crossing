@@ -15,6 +15,7 @@ class SignUp extends React.Component {
   }
   onSubmit(e) {
     e.preventDefault();
+    debugger;
   }
   onParticipantChange({activeChoice}) {
     console.log(activeChoice)
@@ -61,6 +62,7 @@ class SignUp extends React.Component {
         {
           this.questionaire()
         }
+        <input type="submit" value="Submit" />
       </form>
     )
   }
