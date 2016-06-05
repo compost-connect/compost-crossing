@@ -17,30 +17,40 @@ class ComposterForm extends React.Component {
   render () {
     return (
       <div id="composter-questionnaire">
-        <RadioButtons
-          ref="where"
-          label="Where do you compost?"
-          choices={["In my backyard", "at a community composting site`"]} />
-        <RadioButtons
-          ref="size"
-          label="Is your composting site large enough to accept contributions from multiple residences?"
-          choices={["Yes", "No"]} />
-        <RadioButtons
-          ref="ability"
-          label="If No, do you have the know-how and the ability to build a big enough composting site?"
-          choices={["Yes", "No"]} />
+        <Checkboxes
+          ref="refuse"
+          label="What kind of waste do you generate (select all that apply)"
+          choices={[
+            "Kitchen scraps",
+            "Coffee grounds",
+            "Paper napkins/compostable plates/cutlery",
+            "Garden Waste",
+            "Wood Chips (seasonal)",
+            "Leaves (seasonal)"]} />
         <Checkboxes
           ref="logistics"
           label="How do you prefer to get organic waste from residents?"
           choices={[
             "Pick up at their residence",
             "Have them drop it off at designated site"]} />
+        <RadioButtons
+          ref="volunteer"
+          label="Would you need volunteers from your resident supporters to help you with compost turnings and other maintenance, if needed??"
+          choices={["Yes", "No"]} />
         <Checkboxes
-          ref="endProduct"
+          ref="sellCompost"
           label="When the compost is finished, how do you want to disperse it?"
           choices={[
             "Sell it to urban farmers/community gardeners",
             "Give it away for free"]} />
+          <fieldset id="cubic yards">
+            <label>
+              How many cubic yards of compost (approximately) do you generate/hope to generate in 1 year?
+            </label>
+            <input ref="compostSizeMin" type="number" />
+            to
+            <input ref="compostSizeMax" type="number" />
+          </fieldset>
         </div>
     )
   }

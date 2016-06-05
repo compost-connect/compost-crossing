@@ -17,28 +17,27 @@ class FarmerForm extends React.Component {
   render () {
     return (
       <div id="farmer-questionnaire">
-        <Checkboxes
-          label="Where do you currently grow your produce?"
+        <RadioButtons
+          ref="buyCompost"
+          label="Are you willing to pay for sustainably created compost ?"
           choices={[
-            "In a community garden",
-            "In a private lot",
-            "In my backyard/garden"]} />
-        <label>
-          How many cubic yards of compost do you expect to use this season?
-        </label>
-        <input type="text" />
+            "Yes",
+            "No"]} />
+        <fieldset id="cubic yards">
+          <label>
+            How many cubic yards of compost (approximately) do you generate/hope to generate in 1 year?
+          </label>
+          <input ref="compostSizeMin" type="number" />
+          to
+          <input ref="compostSizeMax" type="number" />
+        </fieldset>
         <RadioButtons
-          label="How much of this compost are you looking to get from a sustainable neighborhood source?"
-          choices={["All of it", "I will tkae what I can get and supplement rest from other sources"]} />
-        <RadioButtons
-          label="Are you willing to pay for sustainably created compost?"
-          choices={["Yes", "No"]} />
-        <Checkboxes
+          ref="harvest"
           label="When you harvest, what are you looking to do with your produce?"
           choices={[
-            "Sell it to a local business/restaurant",
+            "Sell it in an online marketplace at a small scale",
             "Use it myself/give the rest away",
-            "Sell it in an online marketplace at a small scale"]} />
+            "Sell it to a local business/restaurant"]} />
         </div>
     )
   }
