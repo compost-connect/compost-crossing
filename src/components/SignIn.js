@@ -12,7 +12,7 @@ class SignIn extends React.Component {
   }
   componentDidUpdate() {
     if (this.props.token && this.props.authenticated) {
-      document.location = '/#/'
+      document.location.hash = '#/'
     }
   }
   render () {
