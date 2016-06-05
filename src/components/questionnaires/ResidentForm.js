@@ -19,7 +19,7 @@ class ResidentForm extends React.Component {
       <div id="resident-questionnaire">
         <Checkboxes
           ref="refuse"
-          label="What kind of waste do you generate (select all that apply)"
+          label="What kind of waste do you generate? (select all that apply)"
           choices={[
             "Kitchen scraps",
             "Coffee grounds",

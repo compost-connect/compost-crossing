@@ -30,7 +30,7 @@ class MessageThread extends React.Component {
   }
   render () {
     return (
-      <div>
+      <div id="message-thread">
         <h1> Messages with {this.props.params.toUser} </h1>
         <ul>
         {

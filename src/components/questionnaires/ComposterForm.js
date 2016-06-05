@@ -19,7 +19,7 @@ class ComposterForm extends React.Component {
       <div id="composter-questionnaire">
         <Checkboxes
           ref="refuse"
-          label="What kind of waste are you accepting in you compost?"
+          label="What kind of waste are you accepting in your compost? (select all that apply)"
           choices={[
             "Kitchen scraps",
             "Coffee grounds",
@@ -36,7 +36,7 @@ class ComposterForm extends React.Component {
         <RadioButtons
           type="standard"
           ref="volunteer"
-          label="Would you need volunteers from your resident supporters to help you with compost turnings and other maintenance, if needed??"
+          label="Would you need volunteers from your resident supporters to help you with compost turnings and other maintenance, if needed?"
           choices={["Yes", "No"]} />
         <Checkboxes
           ref="sell_compost"

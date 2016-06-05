@@ -20,7 +20,7 @@ class FarmerForm extends React.Component {
         <RadioButtons
           type="standard"
           ref="sell_compost"
-          label="Are you willing to pay for sustainably created compost ?"
+          label="Are you willing to pay for sustainably created compost?"
           choices={[
             "Yes",
             "No"]} />
