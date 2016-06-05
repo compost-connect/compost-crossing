@@ -1,3 +1,5 @@
+import { BASE_URL } from '../../constants';
+
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const NOTIFY_USER = 'NOTIFY_USER';
 const FETCH_MESSAGES = 'FETCH_MESSAGES'
@@ -32,7 +34,7 @@ export function fetchMessageSuccess(messages){
 
 export function sendMessage() {
   return dispatch => {
-    fetch('//compost-crossing.herokuapp.com/api/messages', {
+    fetch(`${BASE_URL}/api/api/messages`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
       body: JSON.stringify({
@@ -45,7 +47,7 @@ export function sendMessage() {
 
 export function fetchMessages(token) {
   return dispatch => {
-    fetch(`//compost-crossing.herokuapp.com/api/messages/center?jwt=${token}`)
+    fetch(`${BASE_URL}/api/messages/center?jwt=${token}`)
       .then(response => response.json())
       .then(messages => {
         dispatch(fetchMessageSuccess(messages));

@@ -1,3 +1,5 @@
+import { BASE_URL } from '../constants';
+
 import React, { PropTypes } from 'react'
 import { GoogleMap, Marker } from "react-google-maps";
 import { default as MarkerClusterer } from "react-google-maps/lib/addons/MarkerClusterer";
@@ -11,6 +13,7 @@ const Chicago = {
 
 class Map extends React.Component {
   constructor(props) {
+    console.log(BASE_URL);
     super(props);
     this.state = {
       markers: [
@@ -31,7 +34,7 @@ class Map extends React.Component {
     this.markers = ::this.markers;
   }
   componentDidMount() {
-    fetch('//compost-crossing.herokuapp.com/api/users')
+    fetch(`${BASE_URL}/api/users`)
       .then(response => response.json())
       .then(markers => this.setState({markers: markers.slice(0,150)}))
   }

@@ -1,7 +1,10 @@
+import { BASE_URL } from '../../constants';
+
 const AUTHENTICATE_USER = 'AUTHENTICATE_USER';
 const AUTHENTICATE_USER_SUCCESS = 'AUTHENTICATE_USER_SUCCESS';
 const VALIDATE_TOKEN = 'VALIDATE_TOKEN';
 const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS';
+
 const initialState = {
   authenticated: false,
   token: sessionStorage.getItem('jwt')
@@ -31,7 +34,7 @@ export function loginSuccess(token) {
 
 export function authenticateUser(params) {
   return dispatch => {
-    fetch('//compost-crossing.herokuapp.com/api/auth', {
+    fetch(`${BASE_URL}/api/auth`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
       body: JSON.stringify({password: params.password, email: params.email})
@@ -43,7 +46,7 @@ export function authenticateUser(params) {
 export function validateToken(token) {
   console.log(token)
   return dispatch => {
-    fetch('//compost-crossing.herokuapp.com/api/validate', {
+    fetch(`${BASE_URL}/api/validate`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
       body: JSON.stringify({jwt: token})
@@ -59,8 +62,7 @@ export function createUser(userParams) {
   const password = userParams.password;
   const email = userParams.email;
   return dispatch => {
-    fetch('//compost-crossing.herokuapp.com/api/users', {
-    // fetch('//localhost:9393/api/users', {
+    fetch(`${BASE_URL}/api/users`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
       body: JSON.stringify(userParams)
