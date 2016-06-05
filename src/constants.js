@@ -1,1 +1,1 @@
-export const BASE_URL = '//localhost:9393';
+export const BASE_URL = '//compost-crossing.herokuapp.com';
