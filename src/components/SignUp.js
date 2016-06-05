@@ -21,6 +21,7 @@ class SignUp extends React.Component {
     const userParams = {
       name: this.refs.name.value,
       email: this.refs.email.value,
+      address: this.refs.address.value,
       password: this.refs.password.value,
       password_confirmation: this.refs.passwordConfirmation.value,
       participant_type: this.state.selectedParticapant,
