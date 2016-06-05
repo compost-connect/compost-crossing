@@ -44,6 +44,11 @@ class SignUp extends React.Component {
         return '';
     }
   }
+  componentDidUpdate() {
+    if (this.props.token && this.props.authenticated) {
+      document.location = '/#/'
+    }
+  }
   render () {
     return (
       <form onSubmit={this.onSubmit}>
@@ -79,4 +84,11 @@ class SignUp extends React.Component {
   }
 }
 
-export default connect()(SignUp);
+const stateToProps = state => {
+  return {
+    token: state.AuthenticationReducer.token,
+    authenticated: state.AuthenticationReducer.authenticated
+  }
+}
+
+export default connect(stateToProps)(SignUp);

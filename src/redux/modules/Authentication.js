@@ -52,7 +52,8 @@ export function validateToken(params) {
 }
 
 export function createUser(userParams) {
-  const pw = userParams.password;
+  const password = userParams.password;
+  const email = userParams.email;
   return dispatch => {
     fetch('//compost-crossing.herokuapp.com/api/users', {
     // fetch('//localhost:9393/api/users', {
@@ -61,7 +62,7 @@ export function createUser(userParams) {
       body: JSON.stringify(userParams)
     }).then(response => response.json())
       .then(token => {
-        dispatch(loginSuccess(token));
+        dispatch(authenticateUser({email, password}));
       });
   }
 }
