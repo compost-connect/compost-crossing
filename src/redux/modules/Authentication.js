@@ -54,8 +54,8 @@ export function validateToken(params) {
 export function createUser(userParams) {
   const pw = userParams.password;
   return dispatch => {
-    // fetch('//compost-crossing.herokuapp.com/api/users', {
-    fetch('//localhost:9393/api/users', {
+    fetch('//compost-crossing.herokuapp.com/api/users', {
+    // fetch('//localhost:9393/api/users', {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
       body: JSON.stringify(userParams)
