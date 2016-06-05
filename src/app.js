@@ -30,7 +30,7 @@ render((
       <Route path="/" component={App}>
         <IndexRoute component={Map}/>
         <Route path="/sign-up" component={SignUp}/>
-        <Route path="/sign-in" component={SignIn}/>
+        <Route path="/login" component={SignIn}/>
         <Route path="/messages" component={MessageCenter}/>
       </Route>
       <Route path="*" component={NoMatch}/>
