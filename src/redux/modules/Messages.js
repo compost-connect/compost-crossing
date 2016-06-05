@@ -2,7 +2,8 @@ import { BASE_URL } from '../../constants';
 
 const SEND_MESSAGE = 'SEND_MESSAGE';
 const NOTIFY_USER = 'NOTIFY_USER';
-const FETCH_MESSAGES = 'FETCH_MESSAGES'
+const FETCH_MESSAGES = 'FETCH_MESSAGES';
+const SEND_MESSAGE_SUCCES = 'SEND_MESSAGE_SUCCES';
 
 export default function reducer(state = {}, action) {
   switch(action.type) {
@@ -32,16 +33,21 @@ export function fetchMessageSuccess(messages){
   };
 };
 
-export function sendMessage() {
+export function sendMessageSuccess(messages){
+  return {
+    type: SEND_MESSAGE_SUCCES,
+    messages
+  };
+};
+
+export function sendMessage(token, params) {
   return dispatch => {
-    fetch(`${BASE_URL}/api/api/messages`, {
+    fetch(`${BASE_URL}/api/messages`, {
       headers: {'Content-Type': 'application/json'},
       method: 'post',
-      body: JSON.stringify({
-
-      })
+      body: JSON.stringify(params)
     }).then(response => response.json())
-      .then(token => dispatch(loginSuccess(token)));
+      .then(token => dispatch(sendMessageSuccess(message)));
   }
 }
 

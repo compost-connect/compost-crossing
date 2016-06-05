@@ -1,11 +1,27 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
-import { fetchMessages } from '../redux/modules/Messages';
+import { fetchMessages,sendMessage } from '../redux/modules/Messages';
 
 class MessageThread extends React.Component {
   componentDidMount() {
     if (!this.props.token) document.location.hash = '#/login';
     this.props.dispatch(fetchMessages(this.props.token));
+  }
+  sendMessage(e) {
+    e.preventDefault();
+    this.props.dispatch(sendMessage(
+      this.props.token,
+      {to_user: this.props.params.toUser, content: this.refs.content.value}
+    ));
+  }
+  messages() {
+    if (!this.props.receivedMessages || this.props.receivedMessages.length > 0) return
+    let receivedMessages = this.props.receivedMessages
+      .filter(message =>  message.from.email === this.props.params.toUser);
+    let sentMessages = this.props.receivedMessages
+      .filter(message => message.to.email === this.props.params.toUser);
+    return [...receivedMessages, ...sentMessages]
+      .map(message => <li>{message.content}</li>);
   }
   render () {
     return (
@@ -13,15 +29,13 @@ class MessageThread extends React.Component {
         <h1> Messages with {this.props.params.toUser} </h1>
         <ul>
         {
-          !!this.props.receivedMessages && this.props.receivedMessages.length > 0 ?
-          this.props.receivedMessages
-            .filter(message => {
-              return message.from.email === this.props.params.toUser;
-            })
-            .map(message => <li>{message.content}</li>) :
-          "no messages"
+          this.messages()
         }
         </ul>
+        <form onSubmit={this.sendMessage.bind(this)}>
+          <textarea ref="content"></textarea>
+          <input type="submit" value="Send" />
+        </form>
       </div>
     )
   }
