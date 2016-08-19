@@ -1,10 +1,12 @@
+import {BASE_URL} from '../constants.js';
+
 export function getIcon(participantType) {
   switch (participantType) {
     case 'resident':
-      return 'http://compost-crossing.herokuapp.com/public/images/icon_resident.svg';
+      return `${BASE_URL}/public/images/icon_resident.svg`;
     case 'composter':
-      return 'http://compost-crossing.herokuapp.com/public/images/icon_composter.svg';
+      return `${BASE_URL}/public/images/icon_composter.svg`;
     case 'farmer':
-      return 'http://compost-crossing.herokuapp.com/public/images/icon_farmer.svg';
+      return `${BASE_URL}/public/images/icon_farmer.svg`;
   }
 }
